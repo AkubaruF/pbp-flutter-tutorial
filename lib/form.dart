@@ -9,6 +9,25 @@ class MyFormPage extends StatefulWidget {
 }
 
 class _MyFormPageState extends State<MyFormPage> {
+  void Jenjang() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      if (jenjangDiploma) {
+        jenjang = "Diploma";
+      } else if (jenjangDoktor) {
+        jenjang = "Doktor";
+      } else if (jenjangMagister) {
+        jenjang = "Magister";
+      } else if (jenjangSarjana) {
+        jenjang = "Sarjana";
+      }
+    });
+  }
+
   final _formKey = GlobalKey<FormState>();
   String _namaLengkap = "";
   bool jenjangSarjana = false;
@@ -19,6 +38,7 @@ class _MyFormPageState extends State<MyFormPage> {
   String kelasPBP = 'A';
   List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
   bool _nilaiSwitch = false;
+  String jenjang = "";
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +98,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   if (value) {
                     jenjangMagister = jenjangDiploma = jenjangDoktor = false;
                   }
+                  Jenjang();
                 });
               },
             ),
@@ -90,6 +111,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   if (value) {
                     jenjangMagister = jenjangSarjana = jenjangDoktor = false;
                   }
+                  Jenjang();
                 });
               },
             ),
@@ -102,6 +124,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   if (value) {
                     jenjangDiploma = jenjangSarjana = jenjangDoktor = false;
                   }
+                  Jenjang();
                 });
               },
             ),
@@ -114,6 +137,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   if (value) {
                     jenjangMagister = jenjangSarjana = jenjangDiploma = false;
                   }
+                  Jenjang();
                 });
               },
             ),
@@ -189,6 +213,7 @@ class _MyFormPageState extends State<MyFormPage> {
                               Center(child: const Text('Informasi Data')),
                               SizedBox(height: 20),
                               Center(child: Text("Nama: $_namaLengkap")),
+                              Center(child: Text("Jenjang: $jenjang")),
                               Center(child: Text("Umur: $umur")),
                               Center(child: Text("Kelas: $kelasPBP")),
                               // TODO: Munculkan informasi yang didapat dari form
