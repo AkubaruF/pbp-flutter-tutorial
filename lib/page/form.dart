@@ -1,5 +1,6 @@
 import 'package:flutter_app/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -50,6 +51,36 @@ class _MyFormPageState extends State<MyFormPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ListTile(
+              title: const Text('Main'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Form'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+              },
+            ),
             Padding(
               // Menggunakan padding sebesar 8 pixels
               padding: const EdgeInsets.all(8.0),
